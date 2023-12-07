@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../constants";
 
 export default function UsersTable() {
   const [data, setData] = useState([]);
@@ -9,7 +10,7 @@ export default function UsersTable() {
   useEffect(() => {
     setLoading("loading...");
     setError("");
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch(BASE_URL + "/users")
       .then((res) => {
         if (!res.ok) throw new Error("Something wrong!");
 

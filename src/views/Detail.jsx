@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { BASE_URL } from "../constants";
 
 export default function Detail() {
   const [data, setData] = useState([]);
@@ -10,7 +11,7 @@ export default function Detail() {
   useEffect(() => {
     setLoading("loading...");
     setError("");
-    fetch("https://jsonplaceholder.typicode.com/users/" + id)
+    fetch(BASE_URL + "/users/" + id)
       .then((res) => {
         if (!res.ok) throw new Error("Something wrong!");
 
